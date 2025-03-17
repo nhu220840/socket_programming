@@ -5,6 +5,7 @@
 #include <sys/types.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <unistd.h>
 
 #define PORT 8080
 
@@ -28,4 +29,5 @@ void main(){
     recv(clientSocket, buffer, 1024, 0);
     printf("Data Received: %s\n", buffer);
     printf("[+]Closing the connection.\n");
+    close(clientSocket);
 }

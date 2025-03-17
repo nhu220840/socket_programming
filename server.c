@@ -5,6 +5,7 @@
 #include <sys/types.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <unistd.h>
 
 #define PORT 8080
 
@@ -38,4 +39,6 @@ void main(){
     send(newSocket, buffer, strlen(buffer), 0);
     printf("[+]Send the data to the client.\n");
     printf("[+]Closing the connection.\n");
+    close(sockfd);
+    close(newSocket);
 }
